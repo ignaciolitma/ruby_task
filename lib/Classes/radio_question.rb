@@ -1,4 +1,4 @@
-require_relative 'question'
+require_relative 'options_question'
 
 class RadioQuestion < OptionsQuestion
   def render(response, index)
