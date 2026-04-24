@@ -1,0 +1,24 @@
+id: "personal_information"
+title: "Personal Information"
+questions:
+  - id: "name"
+    type: "text"
+    text: "What is your name?"
+    min_length: 10
+    max_length: 100
+  - id: "have_alias"
+    type: "boolean"
+    text: "Do you have an alias?"
+  - id: "alias"
+    type: "text"
+    text: "What is your alias?"
+    max_length: 200
+    condition:
+      type: "value"
+      question_id: "have_alias"
+      value: true
+      label: "Do you have an alias?"
+  - id: "gender"
+    type: "radio"
+    text: "What is your gender?"
+    preset: "genders"
