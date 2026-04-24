@@ -30,7 +30,8 @@ class Questionnaire
   end
 end
 
-# --- CLI & VALIDACIÓN SCHEMA (BONUS) ---
+
+## Validation of JSON Schema and CLI handling
 if __FILE__ == $0
   options = {}
   OptionParser.new do |opts|
@@ -38,7 +39,6 @@ if __FILE__ == $0
     opts.on("--responses r") { |v| options[:responses] = v }
   end.parse!
 
-  # Bonus: JSON Schema simple
   schema = {
     "type" => "object",
     "required" => ["id", "title", "questions"],
