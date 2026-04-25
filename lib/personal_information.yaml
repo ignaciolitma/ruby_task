@@ -22,3 +22,7 @@ questions:
     type: "radio"
     text: "What is your gender?"
     preset: "genders"
+  - id: "ethnicitie"
+    type: "radio"
+    text: "What is your ethnicitie?"
+    preset: "ethnicities"

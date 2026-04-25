@@ -9,12 +9,24 @@ class OptionsQuestion < Question
   def build_options(config)
     opts = config['options'] || []
     case config['preset']
-    when 'genders' then opts = [{ 'label' => 'Male', 'value' => 'male' }, { 'label' => 'Female', 'value' => 'female' }, { 'label' => 'X', 'value' => 'x' }]
-    when 'states'  then opts = [{ 'label' => 'California', 'value' => 'ca' }, { 'label' => 'Florida', 'value' => 'fl' }, { 'label' => 'New York', 'value' => 'ny' }, { 'label' => 'Texas', 'value' => 'tx' }, { 'label' => 'Washington', 'value' => 'wa' }]
-    when 'countries' then opts = [{ 'label' => 'Canada', 'value' => 'ca' }, { 'label' => 'Mexico', 'value' => 'mx' }]
-    when 'ethnicities' then opts = [
-      { 'label' => 'Canada', 'value' => 'ca' },
+    when 'genders' then opts = [
+      { 'label' => 'Male', 'value' => 'male' },
+       { 'label' => 'Female', 'value' => 'female' },
+       { 'label' => 'X', 'value' => 'x' }]
+    when 'states'  then opts = [
+      { 'label' => 'California', 'value' => 'ca' },
+      { 'label' => 'Florida', 'value' => 'fl' }, 
+      { 'label' => 'New York', 'value' => 'ny' }, 
+      { 'label' => 'Texas', 'value' => 'tx' }, 
+      { 'label' => 'Washington', 'value' => 'wa' }]
+    when 'countries' then opts = [
+      { 'label' => 'Canada', 'value' => 'ca' }, 
       { 'label' => 'Mexico', 'value' => 'mx' }]
+    when 'ethnicities' then opts = [
+      { 'label' => 'White', 'value' => 'white' },
+      { 'label' => 'Black', 'value' => 'black' },
+      { 'label' => 'Hispanic', 'value' => 'hispanic' },
+      { 'label' => 'Asian', 'value' => 'asian' }]
     end
     opts
   end

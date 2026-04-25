@@ -26,7 +26,7 @@ class Question
   end
 
   def print_visibility
-    return "" unless @condition
+  return "" unless @condition
     "\n   #{@condition.to_s}"
   end
 end

@@ -13,6 +13,11 @@ class TextQuestion < Question
     limits << "at least <#{@min}> characters" if @min
     limits << "at most <#{@max}> characters" if @max
     out += "\n   You can enter #{limits.join(' and ')}." unless limits.empty?
-    out + print_visibility
+    out += print_visibility
+    
+    if response && !response.to_s.empty?
+      out += "\n   > Answer: #{response}"
+    end
+    out
   end
 end
