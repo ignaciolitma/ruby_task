@@ -44,8 +44,8 @@ module Conditions
       !condition.met?(responses)
     end
 
-    def to_s
-      condition.to_s("NOT Visible")
+    def to_s(prefix = "NOT Visible")
+      "<NOT Visible> \n   #{condition.to_s}"  
     end
   end
 end

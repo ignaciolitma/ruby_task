@@ -32,7 +32,8 @@ questions:
     text: "What country do you live in?"
     preset: "countries"
     condition:
-      type: "value"
-      question_id: "live_in_us"
-      value: false
-      label: "Do you live in the US?"
+      type: "not"
+      condition:
+        type: "value"
+        question_id: "live_in_us"
+        value: true

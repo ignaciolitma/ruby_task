@@ -23,6 +23,17 @@ questions:
     text: "What is your gender?"
     preset: "genders"
   - id: "ethnicitie"
-    type: "radio"
+    type: "checkbox"
     text: "What is your ethnicitie?"
+    allow_none_of_the_above: true
+    allow_other: true
+    condition:
+      type: "or"
+      conditions:
+        - type: "value"
+          question_id: "have_alias"
+          value: true
+        - type: "value"
+          question_id: "live_in_us"
+          value: false
     preset: "ethnicities"

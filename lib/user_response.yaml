@@ -1,8 +1,12 @@
 personal_information:
-  name: "Raymon Huang"
-  alias: "Ubba Huang"
+  name: "Ignacio Litmanovich"
+  alias: "Nacho Litman"
   have_alias: true
   gender: "male"
+  ethnicitie:
+    - _: "Latin"
+    - "hispanic"
+
 about_the_situation:
-  which_situation: "sa"
+  which_situation: "dv"
   live_in_us: false

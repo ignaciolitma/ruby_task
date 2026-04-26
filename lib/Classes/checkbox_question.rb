@@ -7,17 +7,16 @@ class CheckboxQuestion < OptionsQuestion
   
   def render(response, index)
     responses = response || []
+    selected_ids = responses.map { |r| r.is_a?(Hash) ? r.keys.first.to_s : r.to_s }
+
     out = "#{index}. #{@text} (checkbox question)#{print_visibility}"
-    
     @options.each do |opt|
-      # Cambiamos la lógica de marcado:
-      # Marcamos con 'x' si el valor está directo O si existe un hash que tenga ese valor como clave
-      is_selected = responses.include?(opt['value']) || responses.any? { |r| r.is_a?(Hash) && r.key?(opt['value']) }
-      mark = is_selected ? 'x' : ' '
+      val = opt['value'].to_s
+      mark = selected_ids.include?(val) ? 'x' : ' '
       
-      out += "\n  - [#{mark}] #{opt['label']} (value: '#{opt['value']}')"
+      out += "\n  - [#{mark}] #{opt['label']} (value: '#{val}')"
       
-      if opt['value'] == '_' && (typed = responses.find { |r| r.is_a?(Hash) && r.key?('_') })
+      if val == '_' && (typed = responses.find { |r| r.is_a?(Hash) && r.key?('_') })
         out += "\n      > User typed: \"#{typed['_']}\""
       end
     end
