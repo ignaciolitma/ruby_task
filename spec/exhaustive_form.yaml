@@ -1,0 +1,52 @@
+id: "dev_survey"
+title: "Developer Survey"
+questions:
+  # Test 1: Limit Text Question  
+  - id: "full_name"
+    type: "text"
+    text: "What is your full name?"
+    min_length: 2
+    max_length: 50
+
+  # Test 2: Boolean base
+  - id: "uses_ruby"
+    type: "boolean"
+    text: "Do you program in Ruby?"
+
+  # Test 3: Checkbox con 'Other' y 'None', visible only if uses_ruby is true
+  - id: "ruby_frameworks"
+    type: "checkbox"
+    text: "Which Ruby frameworks do you use?"
+    allow_other: true
+    allow_none_of_the_above: true
+    options:
+      - label: "Ruby on Rails"
+        value: "rails"
+      - label: "Sinatra"
+        value: "sinatra"
+    condition:
+      type: "value"
+      question_id: "uses_ruby"
+      value: true
+      label: "Do you program in Ruby?"
+
+  # Test 4: Boolean base 2 Condtion AND
+  - id: "is_senior"
+    type: "boolean"
+    text: "Are you a Senior Developer?"
+
+  # Test 5: Composed Condition AND
+  - id: "senior_advice"
+    type: "text"
+    text: "What advice would you give to juniors?"
+    condition:
+      type: "and"
+      conditions:
+        - type: "value"
+          question_id: "uses_ruby"
+          value: true
+          label: "Do you program in Ruby?"
+        - type: "value"
+          question_id: "is_senior"
+          value: true
+          label: "Are you a Senior Developer?"
